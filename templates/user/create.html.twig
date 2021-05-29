@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Créer un utilisateur' %}
+
+    {% block header_title %}<h1>S'INSCRIRE</h1>{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form, {'action' : path('user.create')}) }}
+    {{ form_widget(form) }}
+    <label for="roles">Rôle du compte</label>
+    <select name="roles" id="roles" class="form-control">
+        <option value="ROLE_ADMIN">Administrateur</option>
+        <option value="ROLE_USER">Utilisateur</option>
+    </select>
+    <button type="submit" class="btn btn-invert">Ajouter</button>
+    {{ form_end(form) }}
+
+{% endblock %}

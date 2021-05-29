@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Modifier un utilisateur' %}
+
+
+{% block header_title %}<h1>ÉDITER <strong>{{ user.username }}</strong></h1>{% endblock %}
+{% block header_img %}{% endblock %}
+
+{% block body %}
+        {{ form_start(form, {'action' : path('user.edit', {'id' : user.id})}) }}
+        {{ form_widget(form) }}
+        <label for="roles">Rôle du compte</label>
+        <select name="_roles" id="roles" class="form-control">
+                <option value="ROLE_ADMIN">Administrateur</option>
+                <option value="ROLE_USER">Utilisateur</option>
+        </select>
+        <button type="submit" class="btn btn-done">Confirmer</button>
+        {{ form_end(form) }}
+        <a href="{{ path('user.index') }}" class="btn btn-return btn-invert">Retour à la liste des utilisateur</a>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+<nav class="nav-to-do">
+    <a href="{{ path('home') }}"><img src="{{ asset('img/Logo_OpenClassrooms.png') }}" alt="OpenClassrooms"/></a>
+    <div class="nav-placement">
+        <hr>
+        <a class="btn" href="{{ path('home') }}">Accueil</a>
+        <hr>
+        <a href="{{ path('task.create') }}" class="btn nav-margin">nouvelle tâche</a>
+        <a href="{{ path('task.index') }}" class="btn nav-margin">Tâches à faire</a>
+        <a href="{{path('task.done') }}" class="btn nav-margin">Tâches terminées</a>
+        <hr>
+        {% if app.user %}
+            {% if app.user.roles[0] is same as "ROLE_ADMIN" %}
+                <a href="{{ path('user.index') }}" class="btn nav-margin">Liste des utilisateurs</a>
+                <hr>
+            {% endif %}
+            <a href="{{ path('user.logout') }}" class="btn nav-margin">Se
+                déconnecter</a>
+        {% endif %}
+
+        {% if not app.user and 'user.login' != app.request.attributes.get('_route') %}
+            <a href="{{ path('user.create') }}" class="btn nav-margin">S'inscrire</a>
+            <a href="{{ path('user.login') }}" class="btn nav-margin">Se connecter</a>
+        {% endif %}
+    </div>
+</nav>

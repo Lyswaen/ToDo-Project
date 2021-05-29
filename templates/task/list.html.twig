@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Liste des tâches' %}
+
+    {% block header_title %}<h1>LISTE DES TÂCHES À FAIRE</h1>{% endblock %}
+
+{% block body %}
+    <div class="row task-body">
+        {% for task in tasks %}
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="card">
+                    <h4 class="card-title">{{ task.title }}
+                        {% if task.isDone %}<img src="{{ asset('img/check-bold.svg') }}" alt="Tâche terminée">{% else %}
+                            <img src="{{ asset('img/close-thick.svg') }}" alt="Tâche non faite">{% endif %}
+                        <br>
+                        <small>proposée par {{ task.user.username }}</small>
+                    </h4>
+                    <hr>
+                    <p class="card-text">{{ task.content }}</p>
+                    {% if app.user %}
+                        <hr>
+                        <div>
+                            <a class="btn btn-done"
+                               href="{{ path('task.toggle', {'id' : task.id }) }}">
+                                {% if not task.isDone %}Terminer{% else %}Reprendre{% endif %}
+                            </a>
+                        </div>
+                        {% if (task.user.username is same as app.user.username) or (task.user.username is same as "Anonymous" and app.user.roles[0] is same as "ROLE_ADMIN") %}
+                        <hr>
+                            <div>
+                                <a class="btn btn-edit" href="{{ path('task.edit', {'id' : task.id }) }}">Éditer</a>
+                                <a class="btn btn-delete"
+                                   href="{{ path('task.delete', {'id' : task.id }) }}">Supprimer</a>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row task-body">
+        <a href="{{ path('task.create') }}" class="btn btn-invert btn-create">Créer une tâche</a>
+    </div>
+{% endblock %}
