@@ -1,205 +1,279 @@
 @import url("~bootstrap");
-/*#region "Generic Body"*/
+
 body {
-  background-color: #b8d3ef;
-  color: #384045;
+
+    background-color: #b8d3ef;
+    color: #384045;
 }
+
 body hr {
-  width: 100%;
-  background-color: #ffffff;
+
+    width: 100%;
+    background-color: #ffffff;
 }
+
 body h1 {
-  position: relative;
-  left: -11rem;
-  right: 0;
-  margin: 4rem 0 6rem 0;
-  text-align: center;
+
+    position: relative;
+    left: -11rem;
+    right: 0;
+    margin: 4rem 0 6rem 0;
+    text-align: center;
 }
+
 body tr {
-  color: #384045;
-  text-align: center;
+
+    color: #384045;
+    text-align: center;
 }
+
 body .table {
-  background-color: #a2b9d0;
-  width: 80%;
+
+    background-color: #a2b9d0;
+    width: 80%;
 }
+
 body .btn {
-  color: #d0d0d0;
-  padding: 1rem 3rem;
-  border-radius: 50px;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    color: #d0d0d0;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 body .btn:focus {
-  outline: none;
-  box-shadow: none;
-  background: #4c5c70;
-  color: #d0d0d0;
+
+    outline: none;
+    box-shadow: none;
+    background: #4c5c70;
+    color: #d0d0d0;
 }
+
 body .btn:hover {
-  background-color: #37414f;
-  text-decoration: none;
+
+    background-color: #37414f;
+    text-decoration: none;
 }
+
 body .btn:hover:focus {
-  outline: none;
-  box-shadow: none;
-  background: #4c5c70;
-  color: #d0d0d0;
+
+    outline: none;
+    box-shadow: none;
+    background: #4c5c70;
+    color: #d0d0d0;
 }
+
 body .btn-invert {
-  background-color: #6c8099;
-  color: #1d2124;
+
+    background-color: #6c8099;
+    color: #1d2124;
 }
+
 body .btn-invert:focus {
-  background-color: #8ba2ca;
-  color: #1d2124;
+
+    background-color: #8ba2ca;
+    color: #1d2124;
 }
+
 body .btn-invert:hover {
-  color: #d0d0d0;
+
+    color: #d0d0d0;
 }
+
 body .btn-invert:hover:focus {
-  background-color: #8ba2ca;
-  color: #1d2124;
+
+    background-color: #8ba2ca;
+    color: #1d2124;
 }
+
 body .btn-delete {
-  background-color: #804848;
-  color: #1d2124;
+
+    background-color: #804848;
+    color: #1d2124;
 }
+
 body .btn-delete:focus {
-  background-color: #cb9090;
-  color: #1d2124;
+
+    background-color: #cb9090;
+    color: #1d2124;
 }
+
 body .btn-delete:hover {
-  color: #e39e9e;
+
+    color: #e39e9e;
 }
+
 body .btn-delete:hover:focus {
-  background-color: #cb9090;
-  color: #1d2124;
+
+    background-color: #cb9090;
+    color: #1d2124;
 }
+
 body .btn-done {
-  background-color: #487e80;
-  color: #1d2124;
+
+    background-color: #487e80;
+    color: #1d2124;
 }
+
 body .btn-done:focus {
-  background-color: #90bdcb;
-  color: #1d2124;
+
+    background-color: #90bdcb;
+    color: #1d2124;
 }
+
 body .btn-done:hover {
-  color: #9ed5e3;
+
+    color: #9ed5e3;
 }
+
 body .btn-done:hover:focus {
-  background-color: #90bdcb;
-  color: #1d2124;
+
+    background-color: #90bdcb;
+    color: #1d2124;
 }
+
 body .btn-edit {
-  background-color: #806a48;
-  color: #1d2124;
+
+    background-color: #806a48;
+    color: #1d2124;
 }
+
 body .btn-edit:focus {
-  background-color: #cba590;
-  color: #1d2124;
+
+    background-color: #cba590;
+    color: #1d2124;
 }
+
 body .btn-edit:hover {
-  color: #e3bc9e;
+
+    color: #e3bc9e;
 }
+
 body .btn-edit:hover:focus {
-  background-color: #cba590;
-  color: #1d2124;
+
+    background-color: #cba590;
+    color: #1d2124;
 }
+
 body .btn-return {
-  position: fixed;
-  right: 11rem;
-  bottom: 16rem;
+
+    position: fixed;
+    right: 11rem;
+    bottom: 16rem;
 }
 
-/*#endregion*/
-/*#region "SideBar"*/
 .nav-to-do {
-  display: flex;
-  flex-direction: column;
-  background-color: #424c5d;
-  width: 16rem;
-  height: 97vh;
-  padding: 1rem 0 0 0;
-  align-items: center;
-  border-right: 1px solid #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #424c5d;
+    width: 16rem;
+    height: 97vh;
+    padding: 1rem 0 0 0;
+    align-items: center;
+    border-right: 1px solid #ffffff;
 }
+
 .nav-to-do .nav-placement {
-  display: flex;
-  flex-direction: column;
+
+    display: flex;
+    flex-direction: column;
 }
+
 .nav-to-do img {
-  width: 8rem;
+
+    width: 8rem;
 }
+
 .nav-to-do .nav-margin {
-  margin: 0.5rem 0;
+
+    margin: 0.5rem 0;
 }
 
-/*#endregion*/
-/*#region "Footer"*/
 .footer-to-do {
-  color: #d0d0d0;
-  background-color: #252b3b;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4rem;
-  border-top: 1px solid #ffffff;
+
+    color: #d0d0d0;
+    background-color: #252b3b;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    border-top: 1px solid #ffffff;
 }
+
 .footer-to-do p {
-  position: fixed;
-  left: 4rem;
-  bottom: 0.25rem;
+
+    position: fixed;
+    left: 4rem;
+    bottom: 0.25rem;
 }
 
-/*#endregion */
-/*#region "Specific Body"*/
 .body-container {
-  position: fixed;
-  top: 0;
-  bottom: 4rem;
-  left: 16rem;
-  right: 0;
-  padding: 0;
-}
-.body-container .real-body {
-  width: calc(100% - 16rem);
-  justify-content: center;
-  margin-left: 11rem;
-}
-.body-container .real-body .form-group {
-  margin-bottom: 2rem;
-}
-.body-container .real-body .form-control {
-  width: 80%;
-}
-.body-container .real-body .card {
-  background-color: #7187a4;
-  border-color: #FFFFFF;
-  margin: 0 0 4rem 0;
-  padding: 1rem;
-  width: 24rem;
-}
-.body-container .real-body .card .card-text {
-  text-align: center;
-}
-.body-container .real-body .card .card-title {
-  text-align: center;
-}
-.body-container .real-body .card .btn-done {
-  width: 100%;
-}
-.body-container .real-body .card .btn-delete {
-  width: 49%;
-}
-.body-container .real-body .card .btn-edit {
-  width: 49%;
-}
-.body-container .real-body .task-body {
-  justify-content: center;
-  width: 80rem;
+
+    position: fixed;
+    top: 0;
+    bottom: 4rem;
+    left: 16rem;
+    right: 0;
+    padding: 0;
 }
 
-/*#endregion*/
+.body-container .real-body {
+
+    width: calc(100% - 16rem);
+    justify-content: center;
+    margin-left: 11rem;
+}
+
+.body-container .real-body .form-group {
+
+    margin-bottom: 2rem;
+}
+
+.body-container .real-body .form-control {
+
+    width: 80%;
+}
+
+.body-container .real-body .card {
+
+    background-color: #7187a4;
+    border-color: #FFFFFF;
+    margin: 0 0 4rem 0;
+    padding: 1rem;
+    width: 24rem;
+}
+
+.body-container .real-body .card .card-text {
+
+    text-align: center;
+}
+
+.body-container .real-body .card .card-title {
+
+    text-align: center;
+}
+
+.body-container .real-body .card .btn-done {
+
+    width: 100%;
+}
+
+.body-container .real-body .card .btn-delete {
+
+    width: 49%;
+}
+
+.body-container .real-body .card .btn-edit {
+
+    width: 49%;
+}
+
+.body-container .real-body .task-body {
+
+    justify-content: center;
+    width: 80rem;
+}
 
 /*# sourceMappingURL=app.css.map */
