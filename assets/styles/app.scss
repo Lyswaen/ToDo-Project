@@ -1,7 +1,5 @@
 @import url('~bootstrap');
 
-/*#region "Generic Body"*/
-
 body {
   background-color: #b8d3ef;
   color: #384045;
@@ -141,11 +139,6 @@ body {
   }
 }
 
-/*#endregion*/
-
-/*#region "SideBar"*/
-
-
 .nav-to-do {
   display: flex;
   flex-direction: column;
@@ -170,10 +163,6 @@ body {
   }
 }
 
-/*#endregion*/
-
-/*#region "Footer"*/
-
 .footer-to-do {
   color: #d0d0d0;
   background-color: #252b3b;
@@ -190,10 +179,6 @@ body {
     bottom: 0.25rem;
   }
 }
-
-/*#endregion */
-
-/*#region "Specific Body"*/
 
 .body-container {
   position: fixed;
@@ -249,5 +234,3 @@ body {
     }
   }
 }
-
-/*#endregion*/
