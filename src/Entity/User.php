@@ -8,12 +8,17 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * This class is the representation of a User in the Database.
+ *
+ * @package App\Entity
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
  */
 class User implements UserInterface
 {
     /**
+     * The $id property is the primary key and it is auto-generated.
+     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -21,26 +26,37 @@ class User implements UserInterface
     private $id;
 
     /**
+     * The $username property represent the username of a user.
+     *
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $username;
 
     /**
+     * The $roles property represent the degree of access of a user.
+     *
      * @ORM\Column(type="json")
      */
     private $roles = [];
 
     /**
+     * The $password property represent the password of a user.
+     *
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
 
     /**
+     * The $email property represent the email of a user.
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $email;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -56,6 +72,10 @@ class User implements UserInterface
         return (string)$this->username;
     }
 
+    /**
+     * @param string $username
+     * @return $this
+     */
     public function setUsername(string $username): self
     {
         $this->username = $username;
@@ -75,6 +95,10 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
+    /**
+     * @param array $roles
+     * @return $this
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -90,6 +114,10 @@ class User implements UserInterface
         return (string)$this->password;
     }
 
+    /**
+     * @param string $password
+     * @return $this
+     */
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -113,15 +141,21 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        $this->password = null;
     }
 
+    /**
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return $this
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;

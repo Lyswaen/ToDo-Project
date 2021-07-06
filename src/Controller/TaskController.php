@@ -17,26 +17,50 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * The TaskController is used to render and generate all pages of the website,
+ * whose require any kind resources in provenance of the Task entity.
+ *
  * Class TaskController
  * @package App\Controller
- * @Route("/task")
+ * @Route(path="/task")
  */
 class TaskController extends AbstractController
 {
 
     /**
+     * This property will make a relation between the TaskController and the TaskRepository.
+     *
+     * It is via this property that __the *TaskController* will be able to retrieve any resources,
+     * in provenance of the *Task entity*.__
+     *
      * @var TaskRepository
      */
     private $taskRepository;
     /**
+     * This property will make a relation between the TaskController and the the EntityManagerInterface.
+     *
+     * It is via this property that __the *TaskController* will be able to interact with the *Database*.__
+     *
      * @var EntityManagerInterface
      */
     private $manager;
     /**
+     * This property will make a relation between the TaskController and the UserRepository.
+     *
+     * It is via this property that __the *TaskController* will be able to retrieve any resources,
+     * in provenance of the *User entity*.__
+     *
      * @var \App\Repository\UserRepository
      */
     private $userRepository;
 
+    /**
+     * TaskController constructor.
+     *
+     * @param \App\Repository\TaskRepository $taskRepository
+     * @param \Doctrine\ORM\EntityManagerInterface $manager
+     * @param \App\Repository\UserRepository $userRepository
+     */
     public function __construct(TaskRepository $taskRepository, EntityManagerInterface $manager, UserRepository $userRepository)
     {
         $this->taskRepository = $taskRepository;
@@ -45,7 +69,12 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/", name="task.index")
+     * The index() method is used to render the listing pages of all not done yet tasks.
+     *
+     * It will be called in however ways the user manage to __go to the *"/task" URL*__,
+     * it also __use the *taskRepository* property to retrieve only the tasks that hasn't been done yet.__
+     *
+     * @Route(path="/", name="task.index")
      * @return Response
      */
     public function index(): Response
@@ -59,10 +88,15 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/done", name="task.done")
+     * The finishedTask() method is used to render the listing pages of all already done tasks.
      *
+     * It will be called in however ways the user manage to __go to the *"/task/done" URL*__,
+     * it also __use the *taskRepository* property to retrieve only the tasks that has already been done.__
+     *
+     * @Route(path="/done", name="task.done")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function finishedTask()
+    public function finishedTask(): Response
     {
         $tasks = $this->taskRepository->findBy(['isDone' => 1]);
         return $this->render('task/done.html.twig', [
@@ -72,7 +106,19 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/create", name="task.create")
+     * The create() method is used to render and handle the task's creation form,
+     * but also to create a new Task entity in the Database.
+     *
+     * It will be called in however ways the user manage to __go to the *"/task/create" URL*__,
+     * in the handling of the __*Request*__, __there will be two separate case__ (is the form is submitted or not).
+     * In the case where the form hasn't been submitted,
+     * the __*create()*__ method will just __render the *task/create.html.twig template*__,
+     * where the user will be able to fill the form and submit it.
+     * In the case where the form has been submitted,
+     * the __*create()*__ method will __create a new *Task entity*__ and assign its column with the form's values,
+     * __persist this new *Task entity*__ and __flush the changes into the database.__
+     *
+     * @Route(path="/create", name="task.create")
      * @param Request $request
      * @return RedirectResponse|Response
      */
@@ -102,7 +148,19 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="task.edit")
+     * The edit() method is used to render and handle the task's edition form,
+     * but also to update an existing Task entity in the Database.
+     *
+     * It will be called in however ways the user manage to __go to the *"/task/edit/{id}" URL*__,
+     * in the handling of the __*Request*__, __there will be two separate case__ (is the form submitted or not).
+     * In the case where the form hasn't been submitted,
+     * the __*edit()*__ method will just __render the *task/edit.html.twig template*__,
+     * where the user will be able to fill the form and submit it.
+     * In the case where the form has been submitted,
+     * the __*edit()*__ method will __retrieve an existing *Task entity* via its *id*__ and assign its column with the form's values,
+     * and __flush the changes into the database.__
+     *
+     * @Route(path="/edit/{id}", name="task.edit")
      * @param Task $task
      * @param Request $request
      * @return RedirectResponse|Response
@@ -129,7 +187,13 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/toggle/{id}", name="task.toggle")
+     * The toggle() method is used to switch the isDone column in the Database from either 1 or 0 to either 0 or 1.
+     *
+     * It will be called in however ways the user manage to __go to the *"/task/toggle/{id}" URL*__,
+     * The __*toggle()*__ method will __retrieve the *Task entity* provided__ in the URL, __to simply update its isDone column.__
+     * After the update done and the Database flushed, the __*toggle()*__ method __redirect the user to the Task entity listing.__
+     *
+     * @Route(path="/toggle/{id}", name="task.toggle")
      * @param Task $task
      * @return RedirectResponse
      */
@@ -151,7 +215,13 @@ class TaskController extends AbstractController
 
 
     /**
-     * @Route("/delete/{id}", name="task.delete")
+     * The delete() method is used to delete the provided Task entity from the Database.
+     *
+     * It will be called in however ways the user manage to __go to the *"/task/delete/{id}" URL*__,
+     * The __*delete()*__ method will __retrieve the *Task entity* provided__ in the URL, __to simply delete it.__
+     * After the deletion done and the Database flushed, the __*delete()*__ method __redirect the user to the Task entity listing.__
+     *
+     * @Route(path="/delete/{id}", name="task.delete")
      * @param Task $task
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */

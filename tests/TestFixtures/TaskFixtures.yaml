@@ -1,0 +1,20 @@
+App\Entity\Task:
+  taskNotFinished{1..3}:
+    user: '@user'
+    created_at: <dateTime()>
+    title: TitrePourLaTâche<current()>
+    content: ContenueDeLaTâche<current()>
+    isDone: '0'
+
+  taskFinished{4..6}:
+    user: '@user'
+    created_at: <dateTime()>
+    title: TitrePourLaTâche<current()>
+    content: ContenueDeLaTâche<current()>
+    isDone: '1'
+
+App\Entity\User:
+  user:
+    username: TaskHelper
+    password: '0000'
+    email: 'task.helper\@gmail.fr'

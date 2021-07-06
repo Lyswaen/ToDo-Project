@@ -1,0 +1,13 @@
+App\Entity\Task:
+  taskFinished:
+    user: '@user'
+    created_at: <dateTime()>
+    title: Titre à modifier
+    content: Contenue non terminé
+    isDone: '1'
+
+App\Entity\User:
+  user:
+    username: TaskHelper
+    password: '0000'
+    email: 'task.helper\@gmail.fr'
