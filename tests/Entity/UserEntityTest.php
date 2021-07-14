@@ -42,17 +42,4 @@ class UserEntityTest extends KernelTestCase
         $this->assertIsString($user->getPassword());
         $this->assertIsString($user->getEmail());
     }
-
-    public function testEraser() {
-
-        self::bootKernel();
-        $this->loadFixtureFiles([
-            dirname(__DIR__) . '/TestFixtures/UserFixtures.yaml'
-        ]);
-        $userRepository = self::$container->get(UserRepository::class);
-        $user = $userRepository->findOneBy(['email' => 'vendalex01@gmail.com']);
-
-        $user->eraseCredentials();
-        $this->assertEmpty($user->getPassword());
-    }
 }
